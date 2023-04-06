@@ -4,25 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>EInfinity | Inicio</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">EInfinity</a>
-            <ul>
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="#explorar">Explorar</a></li>
-                <li><a href="#avances">Avances</a></li>
-                <li><a href="#experiencias">Experiencias</a></li>
-                <li><a href="./pages/contacto.html">Contacto</a></li>
+    <header class="header">
+            <a 
+                class="header-logo"
+                href="index.html"
+            >
+                Einfinity
+            </a>
+            <ul class="container-links">
+                <li><a class="header-links" href="./index.html">Inicio</a></li>
+                <li><a class="header-links" href="#explorar">Explorar</a></li>
+                <li><a class="header-links" href="#avances">Avances</a></li>
+                <li><a class="header-links" href="#experiencias">Experiencias</a></li>
+                <li><a class="header-links" href="./pages/contacto.html">Contacto</a></li>
             </ul>
-        </nav>
     </header>
-    <main>
-        <h1>Desbloquea el <strong>potencial de la tecnología</strong> con EInfinity.</h1>
-        <p>Descubre cómo el <strong>metaverso</strong> está transformando la forma en que <strong>interactuamos</strong> con el mundo digital. Explora los mundos virtuales, los avatares y la tecnología</p>
-        <a href="#explorar">Comenzá a Explorar</a>
+    <main class="container-all">
+        <section class="hero">
+            <div class="hero-overlay">
+                <div class="container-text">
+                    <h1 class="hero-h1">
+                        <strong class="hero-text-one">Conecta.</strong>
+                        <strong class="hero-text-two">Transforma.</strong>
+                        <strong class="hero-text-three">Experimenta.</strong>
+                    </h1>
+                    <p class="hero-description">Descubre cómo el <strong>metaverso</strong> está transformando la forma en que <strong>interactuamos</strong> con el mundo digital. Explorá los mundos virtuales, los avatares y la tecnología.</p> -->
+                </div>
+            </div>
+        </section>
 
         <section id="explorar">
             <h2>Mundos virtuales</h2>
@@ -33,7 +46,7 @@
                     <p>Juego del metaverso</p>
                     <img 
                         class="game-img"
-                        src="../metaverseGame.png" 
+                        src="./assets/imgs/metaverseGame.png" 
                         alt="Juego 1 metaverso"
                     >
                 </div>
