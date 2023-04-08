@@ -3,9 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-a, li, ol, button{
+a, li, ol, button, input{
   all: unset;
 }
+html{
+  scroll-behavior: smooth;
+}
+/* Fonts */
 @font-face {
   font-family: "Monument Regular";
   src: url(../assets/fonts/MonumentExtended-Regular.otf);
@@ -14,6 +18,7 @@ a, li, ol, button{
   font-family: "Monument Light";
   src: url(../assets/fonts/MonumentExtended-Ultralight.otf);
 }
+
 /* variables */
 :root{
   --bg-dark: #120E16;
@@ -22,74 +27,75 @@ a, li, ol, button{
   --purple-rgb: 97 63 229;
   --primary-rgb: var(--purple-rgb);
 }
+
 /* header */
 .header{
-  background-color: var(--bg-dark);
-  color: var(--text-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.nav{
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  position: sticky;
-  top: 0;
-  height: 4rem;
+  height: 2.7rem;
+  margin: .5rem 2rem 0 2rem;
   font-family: 'Monument Light';
-}
-.nav{
-  height: auto;
+  color: var(--text-color); 
+  border: 1px solid #b5b5b538;
+  border-radius: .94rem .94rem 0 0;
+  backdrop-filter: blur(.4375rem);
 }
 .header-logo{
   font-family: 'Monument Regular';
-  font-size: 1.8rem;
+  font-size: 1.8em;
   letter-spacing: 2px;
   text-transform: uppercase;
-  width: 35%;
-  margin: auto;
+  margin: auto auto auto 3rem;
+  cursor: pointer;
 }
 .container-links{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: .65em;
+  letter-spacing: .07em;
   column-gap: 3rem;
-  margin: auto;
-  font-size: .65rem;
-  letter-spacing: .07rem;
+  margin-right: 3rem;
+  cursor: pointer;
 }
 
 /* hero */
-.container-all{
-  overflow-x: hidden;
-}
 .hero{
-  background: url('../assets/imgs/imageHero.png');
-  background-size: 140%;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('../assets/imgs/imageHero.png') no-repeat;
+  background-size: 140% ;
   background-position: 80% 10%;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: calc(100vh - 4rem);
-  animation: pan-image 25s normal linear;
+  animation: bg-image 25s normal linear;
+  user-select: none;
 }
 .hero-overlay{
+  height: 100%;
+  width: 100%;
   background: linear-gradient(
     rgb(var(--primary-rgb) / 0.15),
     rgb(var(--primary-rgb) / 0.15) 3px,
     transparent 3px,
     transparent .56rem   
-  );
+  ) repeat;
   background-size: 100% .5rem;
-  background-repeat: repeat;
-  height: 100%;
-  width: 100%;
-  animation: pan-overlay 30s infinite linear;
+  animation: overlay-lines 30s infinite linear;
 }
 .hero-overlay::before{
   content: '';
   position: absolute;
   width: 100%;
-  height: calc(100vh - 4rem);
-  top: 4rem;
+  height: 100vh;
+  top: 0;
   left: 0;
-  background: rgba(105, 0, 118, 0.153);
-  background-blend-mode: soft-light;
+  background: rgba(125, 0, 142, .111);
 }
 .container-text{
   height: 100%;
@@ -97,20 +103,20 @@ a, li, ol, button{
   flex-direction: column;
 }
 .hero-h1{
-  font-size: 6.2rem;
-  height: 100%;
-  color: var(--text-color);
   display: flex;
-  order: 2;
   flex-direction: column;
   justify-content: flex-end;
+  order: 2;
+  height: 100%;
+  color: var(--text-color);
   font-family: 'Monument Regular';
-  text-transform: uppercase;
+  font-size: 6.2em;
   line-height: 6.9rem;
+  text-transform: uppercase;
   padding-bottom: 2.8rem;
 }
 .hero-text-one, .hero-text-two, .hero-text-three{
-  z-index: 3;
+  z-index: 1;
 }
 .hero-text-one{
   display: flex;
@@ -128,17 +134,17 @@ a, li, ol, button{
   margin-left: 5rem;
 }
 .hero-description{
+  max-width: 21rem;
   order: 1;
   color: var(--text-color);
-  z-index: 3;
-  max-width: 23rem;
   font-family: 'Monument Light';
-  font-size: .7em;
+  font-size: .64em;
   letter-spacing: .7px;
-  line-height: 1.2rem;
-  margin: 3rem 5rem;
+  line-height: 1rem;
+  margin: 5rem 0 0 5rem;
+  z-index: 1;
 }
-@keyframes pan-overlay {
+@keyframes overlay-lines {
   from{
     background-position: 0% 0%;
   }
@@ -146,7 +152,7 @@ a, li, ol, button{
     background-position: 0% 100%;
   }
 }
-@keyframes pan-image {
+@keyframes bg-image {
   0% {
     background-size: 300%;
     background-position: 73% 100%;
@@ -159,16 +165,124 @@ a, li, ol, button{
     background-size: 300%;
     background-position: 60% 85%;
   }  
-  65% {
+  60% {
     background-size: 250%;
     background-position: 85% 0%;
   }   
   75% { 
     background-size: 290%;
-    background-position: 75% 0%;
+    background-position: 70% 0%;
   }
-  100% {
-    background-size: 140%;
-    background-position: 80% 10%;
-  }
+}
+
+/* styles in common*/
+#explorar, #avances, #contacto{
+  height: auto;
+  width: 100%;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  font-family: 'Monument Light';
+  padding: 3rem 0 0 3rem;
+}
+
+/* explore */
+.explore-title{
+  font-size: 2em;
+  text-transform: uppercase;
+}
+.games{
+  display: flex;
+  flex-wrap: wrap;
+}
+.game-card{
+  font-size: .85em;
+  margin: 2rem 4rem 2rem 0;
+}
+.game-img{
+  height: 20rem;
+  width: 20rem;
+  object-fit: contain;
+  padding-bottom: 1rem;
+}
+
+/* Advances */
+.advances-title{
+  max-width: 40rem;
+  font-size: 1.3em;
+  margin-bottom: 2rem;
+}
+.articles{
+  max-width: 40rem;
+  margin-top: .5rem;
+}
+.articles-text{
+  font-size: .7em;
+  line-height: .9rem;
+  letter-spacing: .01rem;
+  margin-top: .8rem;
+  padding-bottom: 3rem;
+}
+
+/* Contact */
+.form{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  letter-spacing: 1px;
+}
+.form-label{
+  margin: 1rem 0;
+  font-size: .9rem;
+}
+.form-input{
+  height: 2rem;
+  width: 23rem;
+  color: rgb(var(--primary-rgb));
+  font-size: .8em;
+  padding-left: 1rem;
+  margin: .5rem 0;
+  border: 1px solid;
+  border-radius: 0 0 1rem 1rem;
+}
+.form-input::placeholder{
+  color: rgb(var(--primary-rgb));
+}
+.form-btn{
+  height: 2rem;
+  width: 24rem;
+  text-align: center;
+  color: var(--text-color);
+  border: 1px solid;
+  margin-top: 2rem;
+  border-radius: 0 0 1rem 1rem;
+  cursor: pointer;
+  transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.form-btn:hover{
+  background-color: rgb(var(--primary-rgb));
+}
+
+/* Footer */
+.footer{
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray-color);
+  color: rgb(var(--purple-rgb));
+  font-family: 'Monument light';
+  letter-spacing: 1px;
+  padding-top: 4rem;
+}
+.footer-logo{
+  font-family: 'Monument Regular';
+  font-size: 3.5em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.footer-links{
+  font-size: .7em;
+  padding: 0 1rem;
 }

@@ -9,6 +9,7 @@
 </head>
 <body>
     <header class="header">
+        <nav class="nav">
             <a 
                 class="header-logo"
                 href="index.html"
@@ -19,90 +20,118 @@
                 <li><a class="header-links" href="./index.html">Inicio</a></li>
                 <li><a class="header-links" href="#explorar">Explorar</a></li>
                 <li><a class="header-links" href="#avances">Avances</a></li>
-                <li><a class="header-links" href="#experiencias">Experiencias</a></li>
-                <li><a class="header-links" href="./pages/contacto.html">Contacto</a></li>
+                <li><a class="header-links" href="#contacto">Contacto</a></li>
             </ul>
+        </nav>
     </header>
     <main class="container-all">
         <section class="hero">
             <div class="hero-overlay">
                 <div class="container-text">
                     <h1 class="hero-h1">
-                        <strong class="hero-text-one">Conecta.</strong>
-                        <strong class="hero-text-two">Transforma.</strong>
-                        <strong class="hero-text-three">Experimenta.</strong>
+                        <span class="hero-text-one">Conecta.</span>
+                        <span class="hero-text-two">Transforma.</span>
+                        <span class="hero-text-three">Experimenta.</span>
                     </h1>
-                    <p class="hero-description">Descubre cómo el <strong>metaverso</strong> está transformando la forma en que <strong>interactuamos</strong> con el mundo digital. Explorá los mundos virtuales, los avatares y la tecnología.</p> -->
+                    <p class="hero-description">Descubre cómo el <strong>metaverso</strong> está transformando la forma en que <strong>interactuamos</strong> con el mundo digital. Explorá los mundos virtuales, los avatares y la tecnología.</p>
                 </div>
-            </div>
+            </div>     
         </section>
 
         <section id="explorar">
-            <h2>Mundos virtuales</h2>
-            <h3>Juegos que te recomendamos</h3>
+            <h2 class="explore-title">Juegos</h2>
             <div class="games">
                 <div class="game-card">
-                    <h4>Juego 1</h4>
-                    <p>Juego del metaverso</p>
                     <img 
                         class="game-img"
                         src="./assets/imgs/metaverseGame.png" 
                         alt="Juego 1 metaverso"
                     >
+                    <h4>Juego 1</h4>
                 </div>
                 <div class="game-card">
+                    <img 
+                        class="game-img"
+                        src="./assets/imgs/metaverseGame.png" 
+                        alt="Juego 1 metaverso"
+                    >
                     <h4>Juego 2</h4>
                 </div>
                 <div class="game-card">
+                    <img 
+                        class="game-img"
+                        src="./assets/imgs/metaverseGame.png" 
+                        alt="Juego 1 metaverso"
+                    >
                     <h4>Juego 3</h4>
                 </div>
             </div>
         </section>
 
         <section id="avances">
-            <h2>Los nuevos avances en tecnología de realidad virtual y aumentada</h2>
-            <h3>Articulos</h3>
-            <article>
+            <h2 class="advances-title">Los nuevos avances en tecnología de realidad virtual y aumentada.</h2>
+            <article class="articles">
                 <h4>Articulo 1</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vitae modi eaque voluptatum minima excepturi!
-                    Similique enim illo ipsum quod inventore.
+                <p class="articles-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vitae modi eaque voluptatum minima excepturi!
+                    Similique enim illo ipsum quod inventore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consequuntur, debitis rerum, 
+                    provident deserunt eligendi in impedit suscipit recusandae mollitia reprehenderit tempore sequi dolorem optio eaque minus a vitae nisi. 
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque ab harum porro, unde asperiores voluptate, earum voluptates consectetur iusto tempore,
+                    doloribus enim ipsam inventore distinctio laboriosam! Error autem facilis nobis.
                 </p>
             </article>
-            <article>
+            <article class="articles">
                 <h4>Articulo 2</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vitae modi eaque voluptatum minima excepturi!
-                    Similique enim illo ipsum quod inventore.
+                <p class="articles-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vitae modi eaque voluptatum minima excepturi!
+                    Similique enim illo ipsum quod inventore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consequuntur, debitis rerum, 
+                    provident deserunt eligendi in impedit suscipit recusandae mollitia reprehenderit tempore sequi dolorem optio eaque minus a vitae nisi. 
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque ab harum porro, unde asperiores voluptate, earum voluptates consectetur iusto tempore,
+                    doloribus enim ipsam inventore distinctio laboriosam! Error autem facilis nobis.
                 </p>
             </article>
-            <article>
+            <article class="articles">
                 <h4>Articulo 3</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vitae modi eaque voluptatum minima excepturi!
-                    Similique enim illo ipsum quod inventore.
+                <p class="articles-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vitae modi eaque voluptatum minima excepturi!
+                    Similique enim illo ipsum quod inventore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint consequuntur, debitis rerum, 
+                    provident deserunt eligendi in impedit suscipit recusandae mollitia reprehenderit tempore sequi dolorem optio eaque minus a vitae nisi. 
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque ab harum porro, unde asperiores voluptate, earum voluptates consectetur iusto tempore,
+                    doloribus enim ipsam inventore distinctio laboriosam! Error autem facilis nobis.
                 </p>
             </article>
         </section>
-
-        <section id="experiencias">
-            <h2>Experiencias del metaverso</h2>
-            <h3>Conoce que es lo que opinan los expertos</h3>
+        <section id="contacto">
+            <h2>Contactanos:</h2>
+            <form class="form">
+                <label for="name" class="form-label">Nombre:</label>
+                <input 
+                    class="form-input"
+                    type="text" 
+                    name="name" 
+                    id="name"
+                    placeholder="Tu nombre"
+                    autocomplete="off"
+                    required
+                >
+                <label for="email" class="form-label">Correo electronico:</label>
+                <input 
+                    class="form-input"
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Tu e-mail"
+                    autocomplete="off"
+                    required
+                >
+                <button class="form-btn" type="submit">Enviar</button>
+            </form>
         </section>
     </main>
 
-    <footer>
-        <h2>¿Queres estar informado sobre todo lo nuevo del metaverso?</h2>
-        <h3>Suscribite a nuestro newsletter</h3>
-        <h3>Enlaces utiles</h3>
+    <footer class="footer">
+        <h2 class="footer-logo">Einfinity</h2>
         <ul>
-            <li><a href="#">Quienes somos</a></li>
-            <li><a href="#">Politica de privacidad</a></li>
-            <li><a href="#">Uso de cookies</a></li>
-            <li><a href="#">Aportar contenido</a></li>
-        </ul>
-        <h3>Redes sociales</h3>
-        <ul>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Github</a></li>
+            <li><a class="footer-links" href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+            <li><a class="footer-links" href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+            <li><a class="footer-links" href="https://www.github.com/" target="_blank">Github</a></li>
         </ul>
     </footer>
 </body>
