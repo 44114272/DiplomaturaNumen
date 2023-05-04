@@ -35,7 +35,7 @@ html{
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 5;
 }
 .nav{
   display: flex;
@@ -44,10 +44,11 @@ html{
   height: 2.7rem;
   margin: .5rem 2rem 0 2rem;
   font-family: 'Monument Light';
-  color: var(--text-color); 
+  color: var(--text-color);
   border: 1px solid #b5b5b538;
   border-radius: .94rem .94rem 0 0;
   backdrop-filter: blur(.4375rem);
+  -webkit-backdrop-filter: blur(.4375rem);
 }
 .header-logo{
   font-family: 'Monument Regular';
@@ -114,6 +115,7 @@ html{
   line-height: 6.9rem;
   text-transform: uppercase;
   padding-bottom: 2.8rem;
+  /* mix-blend-mode: overlay; */
 }
 .hero-text-one, .hero-text-two, .hero-text-three{
   z-index: 1;
@@ -200,25 +202,92 @@ html{
 .game-card{
   position: relative;
   height: 90vh;
+  width: 100%;
+  overflow: hidden;
 }
-.game-card:before{
+.games-border-top{
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  height: 1px;
+  background: var(--gray-color);
+}
+.games-border{
+  position: relative;
+  z-index: 4;
+  width: 1px;
+  height: 90vh;
+  background: var(--gray-color);
+}
+.game-card-overlay{
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: var(--bg-dark);
+  -webkit-mask: url("../assets/imgs/sprite-mask.png");
+  mask: url("../assets/imgs/sprite-mask.png");
+  -webkit-mask-size: 2300% 100%;
+  mask-size: 2300% 100%;
+  transition: 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: gameOverlay1 .7s steps(22) forwards;
+}
+.game-card:hover .game-card-overlay{
+  animation: gameOverlay2 1s steps(22) forwards;
+}
+@keyframes gameOverlay1 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+@keyframes gameOverlay2 {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+.game-img{
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(1.5);
+  transition: 2.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.game-card:hover .game-img{
+  transform: scale(1);
+}
+.game-img-filter{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.game-img-filter:before{
   content: '';
   position: absolute;
+  z-index: 2;
   top: 0;
+  left: 0;
   width: 100%;
   height: 90vh;
   background: 
   linear-gradient(to bottom,
-  rgba(0, 0, 0, 0.5),
-  rgba(0, 0, 0, 0.087),
-  rgba(0, 0, 0, 0.122),
-  rgba(0, 0, 0, 0.942));
+  rgba(0, 0, 0, 0.41),
+  rgba(0, 0, 0, 0.065),
+  rgba(0, 0, 0, 0.076),
+  rgba(0, 0, 0, 0.848));
   background-blend-mode: soft-light;
-}
-.game-img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
 .game-description{
   position: absolute;
@@ -227,16 +296,20 @@ html{
   min-height: 11rem;
 }
 .description-title{
+  position: relative;
   font-size: 2em;
   text-transform: uppercase;
   margin-bottom: 1rem;
   letter-spacing: 2px;
+  z-index: 3;
 }
 .description-p{
+  position: relative;
   font-size: .75em;
   line-height: 1.1rem;
   max-width: 90%;
   color: var(--gray-color);
+  z-index: 3;
 }
 /* Advances */
 .advances-title{
@@ -319,8 +392,7 @@ html{
   font-size: .7em;
   padding: 0 1rem;
 }
-
-
+/* card */
 .section-flex-card{
   padding: 5rem 0;
   width: 100%;
@@ -329,8 +401,6 @@ html{
   justify-content: center;
   align-items: center;
 }
-
-/* card */
 .flex-card{
   width: 25rem;
   display: flex;
