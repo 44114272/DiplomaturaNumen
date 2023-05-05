@@ -78,12 +78,12 @@ html{
   animation: bg-image 25s normal linear;
   user-select: none;
 }
-.hero-overlay{
+.hero-overlay, .lines-overlay-card{
   height: 100%;
   width: 100%;
   background: linear-gradient(
-    rgb(var(--primary-rgb) / 0.15),
-    rgb(var(--primary-rgb) / 0.15) 3px,
+    rgb(var(--primary-rgb) / 0.3),
+    rgb(var(--primary-rgb) / 0.3) 3px,
     transparent 3px,
     transparent .56rem   
   ) repeat;
@@ -119,18 +119,17 @@ html{
 }
 .hero-text-one, .hero-text-two, .hero-text-three{
   z-index: 1;
-  display: flex;
 }
 .hero-text-one{
-  justify-content: center;
+  align-self: center;
   margin-right: 10rem;
 }
 .hero-text-two{
-  justify-content: flex-end;
+  align-self: flex-end;
   margin-right: 5rem;
 }
 .hero-text-three{
-  justify-content: flex-start;
+  align-self: flex-start;
   margin-left: 5rem;
 }
 .hero-description{
@@ -175,6 +174,49 @@ html{
   }
 }
 
+.more-information{
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  width: 100%;
+  height: 65vh;
+  display: flex;
+  font-family: 'Monument Light';
+}
+.more-information-left{
+  margin: 5rem 0 0 5rem;
+  width: 50%;
+  text-transform: uppercase;
+}
+.more-information-left > h2{
+  font-size: 1.7em;
+  max-width: 20rem;
+  line-height: 2.2rem;
+  letter-spacing: 1.2px;
+}
+.information-border{
+  width: 1px;
+  height: 100%;
+  background: #656565;
+}
+.information-border-bottom{
+  width: 100%;
+  height: 1px;
+  background: #656565;
+}
+.more-information-right{
+  display: flex;
+  align-self: end;
+  justify-content: flex-end;
+  width: 50%;
+  font-size: .8em;
+  line-height: 1.5rem;
+  margin: 0 5rem 3rem 0rem;
+  color: var(--gray-color);
+  text-align: end;
+}
+.more-information-right > p {
+  max-width: 400px;
+}
 /* styles in common*/
 #explorar, #avances, #contacto{
   height: auto;
@@ -192,7 +234,7 @@ html{
   font-size: 4em;
   text-align: center;
   text-transform: uppercase;
-  padding: 5rem 0;
+  padding: 10rem 0;
   font-family: 'Monument Regular';
   color: rgb(var(--purple-rgb));
 }
@@ -269,25 +311,7 @@ html{
   transform: scale(1);
 }
 .game-img-filter{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.game-img-filter:before{
-  content: '';
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90vh;
-  background: 
-  linear-gradient(to bottom,
-  rgba(0, 0, 0, 0.41),
-  rgba(0, 0, 0, 0.065),
-  rgba(0, 0, 0, 0.076),
-  rgba(0, 0, 0, 0.848));
-  background-blend-mode: soft-light;
+  filter: hue-rotate(305deg);
 }
 .game-description{
   position: absolute;
@@ -311,6 +335,19 @@ html{
   color: var(--gray-color);
   z-index: 3;
 }
+.lines-overlay-card{
+  position: absolute;
+  z-index: 3;
+}
+.lines-overlay-card::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  background: rgba(64, 0, 72, 0.268);
+}
+
 /* Advances */
 .advances-title{
   max-width: 40rem;
