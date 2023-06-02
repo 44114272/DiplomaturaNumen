@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
         const breakpoint = 50 * parseFloat(getComputedStyle(document.documentElement).fontSize);
 
         if (windowWidth < breakpoint) {
-
             gsap.set(linksContainer, {opacity: 0});
 
             const squareContainer = document.getElementById('squareContainer');
@@ -57,14 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     },
                 });
             }
-
             let overlayVisible = false;
-
-            gsap.to(linksContainer, {
-                opacity: 0,
-                visibility: 'hidden',
-                delay: 0.5,
-                });
 
             menuIcon.addEventListener('click', () => {
                 linksContainer.classList.toggle('container-links-active');
@@ -111,7 +103,8 @@ window.addEventListener("DOMContentLoaded", () => {
                     overlayVisible= !overlayVisible;
                 });
             });    
-        }  else{
+
+        } else{
             linksContainer.classList.remove('container-links-active');
             gsap.set(linksContainer, {
                 opacity: 1,
@@ -123,7 +116,6 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-    
     window.addEventListener('resize', checkWindowSize);
     window.addEventListener('load', checkWindowSize);  
 })
