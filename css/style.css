@@ -578,6 +578,7 @@ html{
   }
   .nav{
     margin: 0;
+    border-radius: 0 0 .94rem .94rem;
   }
   .header-logo{
     margin: auto auto auto 2rem;
@@ -850,5 +851,37 @@ html{
   .form-btn{
     width: 105%;
     margin-top: 2rem;
+  }
+}
+
+@media (max-width: 25rem){
+  .hero{
+    background-position: 57% 0;
+    animation: none;
+  }
+  .hero-description{
+    font-size: .64em;
+    letter-spacing: .7px;
+    line-height: 1rem;
+    margin: 5rem 0 0 1rem;
+  }
+  .hero-h1{
+    font-size: 10vw;
+    line-height: 11vw;
+    padding-bottom: 4rem;
+  }
+  .hero-text-one{
+    margin: 0 1rem 0 0;
+    align-self: end;
+  }
+  .hero-text-two{
+    margin: 0;
+    align-self: center;
+    font-size: 9.5vw;
+  }
+  .hero-text-three{
+    margin: 0;
+    font-size: 9.5vw;
+    align-self: center;
   }
 }
