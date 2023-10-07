@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
     linksContainer = document.querySelector('.container-links');
     headerLinks = document.querySelectorAll('.header-links');
 
-    function checkWindowSize() {
+    const checkWindowSize = () => {
         const windowWidth = window.innerWidth;
         const breakpoint = 50 * parseFloat(getComputedStyle(document.documentElement).fontSize);
 
@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             let squares = [];
 
-            function createSquares() {
+            const createSquares = () => {
                 for(let i = 0; i < numSquares; i++) {
                     const square = document.createElement("div");
                     square.classList.add('menu-squares');
@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            function animateSquares() {
+            const animateSquares = () => {
                 gsap.fromTo(squares, {
                     opacity: 0
                 }, {
@@ -116,6 +116,42 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-    window.addEventListener('resize', checkWindowSize);
+
+    // game cards
+    const gameCards = document.querySelector('.games');
+    const cardsMediaQuery = window.matchMedia('(max-width: 800px)');
+    let moveVal = 0;
+    let lastScrollY = 0;
+    let animationFrameId = null;
+
+    const easeOutQuad = t => t * (2 - t);
+
+    const animateCards = () => {
+        const { scrollY } = window;
+        if(scrollY !== lastScrollY) {
+            moveVal = easeOutQuad(scrollY * 0.0047);
+            gameCards.style.transform = `translateX(${moveVal}%)`;
+            lastScrollY = scrollY;
+        }
+        
+        if (cardsMediaQuery.matches) 
+            animationFrameId = requestAnimationFrame(animateCards);
+    }
+
+    const handleResizeCards = () => {
+        if (cardsMediaQuery.matches) {
+            if (!animationFrameId)
+                animationFrameId = requestAnimationFrame(animateCards);
+        } else {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            gameCards.style.transform = 'translateX(0)';
+        }
+    }
     window.addEventListener('load', checkWindowSize);  
-})
+    window.addEventListener('resize', handleResizeCards);
+    window.addEventListener('resize', checkWindowSize);
+    handleResizeCards();
+});
