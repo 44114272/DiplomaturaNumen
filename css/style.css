@@ -375,21 +375,36 @@ html{
   left: 50%;
   transition: transform 0.3s ease; 
 } */
-
-.portal-container{
+#avances{
+  background-color: rgb(0, 29, 38);
+  /* padding-top: 10rem; */
+  position: relative;
+  min-height: 4500px;
+  /* overflow: hidden; */
+}
+.video-section{
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+#portalVideo {
+  width: 100vw;
   height: 100vh;
-  /* width: 100vw; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background: url('../assets/imgs/bgPortal4.jpg') no-repeat;
-  background-position: 0% 90%;
-  background-size: 100%;
+  object-fit: cover;
+}
+.portal-img-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 120vh;
+  width: 100vw;
+
+  object-fit: cover;
 }
 .img-portal {
-  width: 25rem;
-  transition: transform 0.3s ease; 
+  width: 100%;
+  transition: transform .8s ease;
 } 
 
 /* Contact */
@@ -772,25 +787,22 @@ html{
     position:sticky;
     left: 0;
     top: 10%;
-    overflow-x: hidden;
+    overflow: hidden;
   }
   .games{
     align-items: center;
     width: 100%;
-    gap: 4rem;
-    margin-left: 20rem;
+    gap: 5rem;
+    margin-left: 22rem;
   }
   .game-card{
     height: 75vh;
-    width: 55%;
+    width: 80%;
     max-height: 42rem;
-    max-width: 30rem;
+    max-width: 25rem;
     flex-shrink: 0;
   }
   .games-border{
-    display: none;
-  }
-  .games-border-top{
     display: none;
   }
   .game-img{
@@ -901,7 +913,7 @@ html{
     margin-top: 2rem;
   }
 }
-@media (max-width: 25rem){
+@media (max-width: 28rem){
   .hero{
     background-position: 57% 0;
     animation: none;
@@ -955,7 +967,7 @@ html{
   }
   .games{
     gap: 3rem;
-    margin-left: 10rem;
+    margin-left: 11rem;
   }
   .game-card{
     height: 70vh;
@@ -983,16 +995,16 @@ html{
       background-position: 87% 100%;
     } 
     40.0001% { 
-      background-size: 320%;
-      background-position: 70% 85%;
+      background-size: 380%;
+      background-position: 40% 85%;
     }  
     60% {
-      background-size: 310%;
-      background-position: 65% 10%;
+      background-size: 480%;
+      background-position: 60% 10%;
     }   
-    75% { 
-      background-size: 240%;
-      background-position: 70% 10%;
+    100% { 
+      background-size: cover;
+      background-position: 60% 10%;
     }
   }
 }
