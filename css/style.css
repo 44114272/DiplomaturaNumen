@@ -357,42 +357,27 @@ html{
 /* Portal */
 #avances{
   position: relative;
-  min-height: 280vh;
-}
-.video-section{
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-}
-#portalAniStart{
-  position: absolute;
-  bottom: 5px;
-  width: 100%;
-  height: 20px;
-  z-index: 5;
-}
-#portalVideo {
-  position: relative;
-  width: 100vw;
   height: 100vh;
-  object-fit: cover;
-  transition: blur 1.1s ease;
 }
 .portal-img-container{
   position: absolute;
-  top: 0;
+  top: -.625rem;
   z-index: 1;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 110vh;
   object-fit: cover;
+  overflow: hidden;
 }
 .img-portal {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1s ease;
+  transition: transform 1.1s ease;
 } 
-
+.portal-video{
+  height: 400vh;
+  transition: filter 1.4s ease;
+}
 /* Contact */
 .form{
   display: flex;

@@ -8,14 +8,14 @@ window.addEventListener("DOMContentLoaded", () => {
         const breakpoint = 50 * parseFloat(getComputedStyle(document.documentElement).fontSize);
 
         if (windowWidth < breakpoint) {
-            gsap.set(linksContainer, {opacity: 0});
+            gsap.set(linksContainer, { opacity: 0 });
 
             const squareContainer = document.getElementById('squareContainer');
             const squareSize = 100;
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
-            const numCols =  Math.ceil(screenWidth / squareSize);
-            const numRows =  Math.ceil(screenHeight / squareSize);
+            const numCols = Math.ceil(screenWidth / squareSize);
+            const numRows = Math.ceil(screenHeight / squareSize);
 
             const numSquares = numCols * numRows;
 
@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
             let squares = [];
 
             const createSquares = () => {
-                for(let i = 0; i < numSquares; i++) {
+                for (let i = 0; i < numSquares; i++) {
                     const square = document.createElement("div");
                     square.classList.add('menu-squares');
                     squareContainer.appendChild(square);
@@ -62,7 +62,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 linksContainer.classList.toggle('container-links-active');
                 menuIcon.classList.toggle('open-menu');
                 squareContainer.innerHTML = '',
-                squares = [];
+                    squares = [];
                 createSquares();
                 animateSquares();
 
@@ -77,17 +77,17 @@ window.addEventListener("DOMContentLoaded", () => {
                     delay: overlayVisible ? 0 : 2,
                 }),
 
-                overlayVisible= !overlayVisible;
+                    overlayVisible = !overlayVisible;
             })
-        
+
             headerLinks.forEach((link) => {
                 link.addEventListener('click', () => {
                     linksContainer.classList.remove('container-links-active');
                     menuIcon.classList.remove('open-menu');
                     squareContainer.innerHTML = '',
                         squares = [];
-                        createSquares();
-                        animateSquares();
+                    createSquares();
+                    animateSquares();
 
                     gsap.to(linksContainer, 0.025, {
                         opacity: overlayVisible ? 0 : 1,
@@ -100,11 +100,11 @@ window.addEventListener("DOMContentLoaded", () => {
                         delay: overlayVisible ? 0 : 2,
                     }),
 
-                    overlayVisible= !overlayVisible;
+                        overlayVisible = !overlayVisible;
                 });
-            });    
+            });
 
-        } else{
+        } else {
             linksContainer.classList.remove('container-links-active');
             gsap.set(linksContainer, {
                 opacity: 1,
@@ -128,13 +128,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const animateCards = () => {
         const { scrollY } = window;
-        if(scrollY !== lastScrollY) {
+        if (scrollY !== lastScrollY) {
             moveVal = easeOutQuad(scrollY * 0.0047);
             gameCards.style.transform = `translateX(${moveVal}%)`;
             lastScrollY = scrollY;
         }
-        
-        if (cardsMediaQuery.matches) 
+
+        if (cardsMediaQuery.matches)
             animationFrameId = requestAnimationFrame(animateCards);
     }
 
@@ -151,64 +151,43 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    window.addEventListener('load', checkWindowSize);  
+    window.addEventListener('load', checkWindowSize);
     window.addEventListener('resize', checkWindowSize);
     window.addEventListener('resize', handleResizeCards);
     handleResizeCards();
 
-     // portal
-     const portalContainer = document.querySelector('.video-section');
-     const portalAniStart = document.getElementById('portalAniStart');
-     const portalImg = document.getElementById('portal');
-     const portalVideo = document.getElementById('portalVideo');
-     let isScaling = false;
-     let scrollStartPosition = null; 
- 
-     const scaleImage = () => {
-         isScaling = true;
-         portalVideo.style.filter = 'blur(0)';
-         portalImg.style.transform = 'scale(4)';
-     }
- 
-     const resetImageScale = () => {
-         isScaling = false;
-         portalVideo.style.filter = 'blur(15px)';
-         portalImg.style.transform = 'scale(1)';
-     }
- 
-     const updateVideoPosition = () => {
-        if (scrollStartPosition !== null) {
-            const scrollPosition = window.scrollY;
-            const pixelsScrolled = (scrollPosition - scrollStartPosition);
-            const videoDuration = 8;
-            
-            const videoPosition = (pixelsScrolled / portalContainer.clientHeight) * videoDuration;
-
-            portalVideo.currentTime = videoPosition;
-        }
+    // portal
+    const portalContainer = document.querySelector('.video-section');
+    const portalImg = document.getElementById('portal');
+    const portalVidCont = document.querySelector('.portal-video');
+    
+    const scaleImage = () => {
+        portalImg.style.transform = 'scale(12)';
+        portalVidCont.style.filter = 'blur(0)' 
     }
- 
-     const observer = new IntersectionObserver(entries => {
-         const entry = entries[0];
-         if (entry.isIntersecting && entry.intersectionRatio >= .1) {
-             scrollStartPosition = window.scrollY;
-             scaleImage()
-         } else {
-             resetImageScale()
-             scrollStartPosition = null;
-         }
-     }, {
-         threshold: .1,
-     });
- 
-     observer.observe(portalAniStart);
- 
-     window.addEventListener('scroll', () => {
-         if (isScaling) {
-             const scrollPosition = window.scrollY;
-             isScrollingUp = scrollPosition < scrollStartPosition;
-             updateVideoPosition()
-         }
-     });
- 
+    
+    const resetImageScale = () => {
+        portalImg.style.transform = 'scale(1)';
+        portalVidCont.style.filter = 'blur(10px)' 
+    }
+
+    window.onload = () => 
+        resetImageScale()
+
+    const observer = new IntersectionObserver(entries => {
+        const entry = entries[0];
+        if (entry.isIntersecting)
+            resetImageScale();
+        
+        else 
+            scaleImage();
+        
+    });
+    
+    new ScrollyVideo({
+        scrollyVideoContainer: "scrolly-video",
+        src: "./assets/media/portalVideo.mp4"
+    });
+
+    observer.observe(portalContainer);
 });
