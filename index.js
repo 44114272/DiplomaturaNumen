@@ -156,65 +156,59 @@ window.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('resize', handleResizeCards);
     handleResizeCards();
 
-    // portal
-    const portalContainer = document.querySelector('.video-section');
-    const portalImg = document.getElementById('portal');
-    const portalVideo = document.getElementById('portalVideo');
-    let isScaling = false;
-    let scaleTimeout;
-    let scrollStartPosition = null; 
-    let isScrollingUp = false;
-
-    const scaleImage = () => {
-        isScaling = true;
-        scaleTimeout = null;
-        portalImg.style.transform = 'scale(4)';
-    }
-
-    const resetImageScale = () => {
-        isScaling = false;
-        portalImg.style.transform = 'scale(1)';
-        portalVideo.playbackRate = 1; 
-    }
-
-    const updateVideoPosition = () => {
+     // portal
+     const portalContainer = document.querySelector('.video-section');
+     const portalAniStart = document.getElementById('portalAniStart');
+     const portalImg = document.getElementById('portal');
+     const portalVideo = document.getElementById('portalVideo');
+     let isScaling = false;
+     let scrollStartPosition = null; 
+ 
+     const scaleImage = () => {
+         isScaling = true;
+         portalVideo.style.filter = 'blur(0)';
+         portalImg.style.transform = 'scale(4)';
+     }
+ 
+     const resetImageScale = () => {
+         isScaling = false;
+         portalVideo.style.filter = 'blur(15px)';
+         portalImg.style.transform = 'scale(1)';
+     }
+ 
+     const updateVideoPosition = () => {
         if (scrollStartPosition !== null) {
             const scrollPosition = window.scrollY;
-            const pixelsScrolled = scrollPosition - scrollStartPosition;
-            const videoDuration = 10 * 10000;
-            if (isScrollingUp) 
-                portalVideo.playbackRate = 1;
-            else 
-                portalVideo.playbackRate = 1;
+            const pixelsScrolled = (scrollPosition - scrollStartPosition);
+            const videoDuration = 8;
             
-            const videoPosition = (pixelsScrolled / portalContainer.clientHeight) * videoDuration / 4;
+            const videoPosition = (pixelsScrolled / portalContainer.clientHeight) * videoDuration;
 
-            portalVideo.currentTime = videoPosition / 10000; // Convertir a segundos
+            portalVideo.currentTime = videoPosition;
         }
     }
-
-    const observer = new IntersectionObserver(entries => {
-        const entry = entries[0];
-        if (entry.isIntersecting && entry.intersectionRatio >= .99) {
-            scrollStartPosition = window.scrollY;
-            scaleImage()
-        } else {
-            resetImageScale()
-            scrollStartPosition = null;
-            portalVideo.playbackRate = 1;
-        }
-    }, {
-        threshold: 0.99, // Cuando al menos el 99% del portal esté visible
-    });
-
-    observer.observe(portalContainer);
-
-    window.addEventListener('scroll', () => {
-        if (isScaling) {
-            // Detectar la dirección del scroll
-            const scrollPosition = window.scrollY;
-            isScrollingUp = scrollPosition < scrollStartPosition;
-            updateVideoPosition()
-        }
-    });
+ 
+     const observer = new IntersectionObserver(entries => {
+         const entry = entries[0];
+         if (entry.isIntersecting && entry.intersectionRatio >= .1) {
+             scrollStartPosition = window.scrollY;
+             scaleImage()
+         } else {
+             resetImageScale()
+             scrollStartPosition = null;
+         }
+     }, {
+         threshold: .1,
+     });
+ 
+     observer.observe(portalAniStart);
+ 
+     window.addEventListener('scroll', () => {
+         if (isScaling) {
+             const scrollPosition = window.scrollY;
+             isScrollingUp = scrollPosition < scrollStartPosition;
+             updateVideoPosition()
+         }
+     });
+ 
 });
