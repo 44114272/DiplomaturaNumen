@@ -12,23 +12,29 @@
         <nav class="nav">
             <a 
                 class="header-logo"
-                href="index.html"
+                href="#"
             >
                 Einfinity
             </a>
-            <div id="squareContainer"></div>
-            <ul class="container-links ">
-                <li><a class="header-links" href="./index.html">Inicio</a></li>
-                <li><a class="header-links" href="#explorar">Explorar</a></li>
-                <li><a class="header-links" href="#avances">Avances</a></li>
-                <li><a class="header-links" href="#contacto">Contacto</a></li>
-            </ul>
-            <div id="toggleMenu" class="">
-                <span class="menu-line1"></span>
-                <span class="menu-line2"></span>
-                <span class="menu-line3"></span>
-            </div>
+            <button class="header-close" id="closeBtn" aria-label="Cerrar menú">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+            </button>
+            <div class="animation-container"></div>
+                <ul class="container-links">
+                    <li><a class="header-links" href="#">Inicio</a></li>
+                    <li><a class="header-links" href="#explorar">Explorar</a></li>
+                    <li><a class="header-links" href="#avances">Avances</a></li>
+                    <li><a class="header-links" href="#contacto">Contacto</a></li>
+                </ul>
         </nav>
+        <button class="header-hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        </button>
+        <div class="hola"></div>
     </header>
 
     <main class="container-all">
@@ -144,12 +150,20 @@
         <section id="avances" class="portal-section">
             <section class="video-section">
                 <div class="portal-img-container">
-                    <img src="./assets/imgs/portal.png" alt="" class="img-portal" id="portal" style="transform: scale(1);">
+                    <img src="./assets/imgs/portal.png" alt="" class="img-portal" id="portal" loading="lazy">
                 </div>
             </section>
             <div class="portal-video">
-                <div id="scrolly-video"></div>
+                <div id="scrolly-video" loading="lazy"></div>
             </div>
+            <footer class="footer">
+                <h2 class="footer-logo">Einfinity</h2>
+                <ul class="footer-links">
+                    <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.github.com/" target="_blank">Github</a></li>
+                </ul>
+            </footer>
         </section> 
     </main>
         <!-- <section id="contacto">
@@ -178,17 +192,7 @@
                 <button class="form-btn" type="submit">Enviar</button>
             </form>
         </section> -->
-
-    <!-- <footer class="footer">
-        <h2 class="footer-logo">Einfinity</h2>
-        <ul class="footer-links">
-            <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-            <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-            <li><a href="https://www.github.com/" target="_blank">Github</a></li>
-        </ul>
-    </footer> -->
     
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
     <script src="./index.js"></script>
 
