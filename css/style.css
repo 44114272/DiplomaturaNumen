@@ -66,17 +66,16 @@ html{
 .header-links{
   cursor: pointer;
 }
-
 /* hero */
 .hero{
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('../assets/imgs/imageHero.png') no-repeat;
-  background-size: 140% ;
-  background-position: 80% 10%;
+  background: url('../assets/imgs/imageHero.webp') no-repeat;
+  background-size: 110%;
+  background-position: 100% 35%;
   user-select: none;
-  animation: bg-image 25s normal linear;
+  animation: bg-image 15s normal linear;
 }
 .hero-overlay, .lines-overlay-card{
   height: 100%;
@@ -88,7 +87,7 @@ html{
     transparent .56rem   
   ) repeat;
   background-size: 100% .5rem;
-  animation: overlay-lines 30s infinite linear;
+  animation: overlay-lines 25s infinite linear;
 }
 .hero-overlay::before{
   content: '';
@@ -152,19 +151,15 @@ html{
 }
 @keyframes bg-image {
   0% {
-    background-size: 300%;
+    background-size: 250%;
     background-position: 73% 100%;
   }
-  40% {
+  35% {
     background-size: 200%;
     background-position: 100% 100%;
-  } 
-  40.0001% { 
-    background-size: 300%;
-    background-position: 80% 85%;
-  }  
-  70% {
-    background-size: 240%;
+  }
+  65% {
+    background-size: 230%;
     background-position: 75% 0%;
   }
 }
@@ -472,7 +467,6 @@ html{
     font-size: .6em;
   }
 }
-
 @media (max-width: 82rem) {
   .hero-h1{
     font-size: 5.5em;
@@ -490,6 +484,10 @@ html{
   }
 }
 @media (max-width: 72rem) {
+  .hero{
+    background-size: 135%;
+    background-position: 70% 35%;
+  }
   .hero-h1{
     font-size: 4.8em;
     line-height: 5rem;
@@ -529,8 +527,8 @@ html{
     margin: .7rem 1rem 0 1em;
   }
   .hero{
-    background-size: 170%;
-    background-position: 65% 10%;
+    background-size: 145%;
+    background-position: 65% 55%;
   }
   .hero-h1{
     font-size: 4.3em;
@@ -561,28 +559,6 @@ html{
   }
   .more-information-right > p {
     max-width: 23rem;
-  }
-  @keyframes bg-image {
-    0% {
-      background-size: 330%;
-      background-position: 75% 100%;
-    }
-    40% {
-      background-size: 240%;
-      background-position: 87% 100%;
-    } 
-    40.0001% { 
-      background-size: 330%;
-      background-position: 60% 85%;
-    }  
-    60% {
-      background-size: 280%;
-      background-position: 85% 0%;
-    }   
-    75% { 
-      background-size: 310%;
-      background-position: 70% 0%;
-    }
   }
 }
 @media (max-width: 50rem) {
@@ -782,28 +758,6 @@ html{
     width: 97%;
     margin-top: 2rem;
   }
-  @keyframes bg-image {
-    0% {
-      background-size: 390%;
-      background-position: 60% 100%;
-    }
-    40% {
-      background-size: 310%;
-      background-position: 77% 100%;
-    } 
-    40.0001% { 
-      background-size: 360%;
-      background-position: 60% 85%;
-    }  
-    60% {
-      background-size: 300%;
-      background-position: 80% 0%;
-    }   
-    75% { 
-      background-size: 330%;
-      background-position: 70% 0%;
-    }
-  }
 }
 @media (max-width: 47rem) {
   .header-logo{
@@ -818,7 +772,7 @@ html{
   }
   .hero{
     background-size: cover;
-    /* animation: none; */
+    animation: none;
   }
   .hero-h1{
     font-size: 9vw;
@@ -863,6 +817,7 @@ html{
 }
 @media (max-width: 28rem){
   .hero{
+    background-size: cover;
     background-position: 57% 0;
     animation: none;
   }
@@ -928,32 +883,10 @@ html{
 @media (min-height: 59rem) and (orientation: portrait){
   .hero{
     background-size: cover;
-    background-position: 60% 10%;
+    animation: none;
   }
   .more-information{
     height: 65vh;
-  }
-  @keyframes bg-image {
-    0% {
-      background-size: 650%;
-      background-position: 70% 100%;
-    }
-    40% {
-      background-size: 430%;
-      background-position: 87% 100%;
-    } 
-    40.0001% { 
-      background-size: 380%;
-      background-position: 40% 85%;
-    }  
-    60% {
-      background-size: 480%;
-      background-position: 60% 10%;
-    }   
-    100% { 
-      background-size: cover;
-      background-position: 60% 10%;
-    }
   }
 }
 @media (min-width: 100rem) {
@@ -962,8 +895,8 @@ html{
     margin: .5rem 4rem 0 4rem;
   }
   .hero-h1{
-    font-size: 6vw;
-    line-height: 6.3vw;
+    font-size: 6.3vw;
+    line-height: 6.4vw;
     padding-bottom: 3rem;
   }
   .hero-text-one{
